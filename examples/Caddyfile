@@ -1,0 +1,16 @@
+{
+	order advanced_metrics before file_server
+}
+
+:5001 {
+	root * /home/sebastianbrunnert/Schreibtisch/s1
+	file_server
+	advanced_metrics {
+		port 6613
+	}
+}
+
+:5002 {
+	root * /home/sebastianbrunnert/Schreibtisch/s2
+	file_server
+}
