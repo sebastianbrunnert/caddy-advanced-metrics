@@ -1,7 +1,6 @@
 package advanced_metrics
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -37,7 +36,6 @@ func (AdvancedMetrics) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 }
 
 func (am AdvancedMetrics) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhttp.Handler) error {
-	fmt.Println("ServeHTTP", am.PrometheusPort, r.Method, r.URL.Path, r.Host)
 	lrw := NewLoggingResponseWriter(w)
 	next.ServeHTTP(w, r)
 	HandleRequest(am.PrometheusPort, r.Method, r.URL.Path, lrw.statusCode, r.Host)

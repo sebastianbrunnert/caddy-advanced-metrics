@@ -1,7 +1,6 @@
 package advanced_metrics
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -26,7 +25,6 @@ func StartServer(port int) {
 }
 
 func HandleRequest(port int, method string, path string, status int, host string) {
-	fmt.Println("HandleRequest", port, method, path, status, host)
 	if _, ok := counters[port]; ok {
 		counters[port].WithLabelValues(method, path, strconv.Itoa(status), host).Inc()
 	}

@@ -29,6 +29,7 @@ With this caddy module built on bases of [xcaddy](https://github.com/caddyserver
 ```
 {
 	order advanced_metrics before file_server
+  order advanced_metrics before reverse_proxy
 }
 
 :8080 {
